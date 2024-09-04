@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { SearchInput, Loader, Pagination } from "../../../../shared";
 import { UserPosts } from "../UserPosts/UserPosts";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const UsersPage = () => {
   const [username, setUsername] = useState("");
@@ -27,10 +28,12 @@ export const UsersPage = () => {
   );
 
   const handlePreviousClick = () => {
+    setUserId(undefined);
     setCurrentPage((prev) => prev - 1);
   };
 
   const handleNextClick = () => {
+    setUserId(undefined);
     setCurrentPage((prev) => prev + 1);
   };
 
@@ -51,9 +54,8 @@ export const UsersPage = () => {
         onNextClick={handleNextClick}
         onPreviousClick={handlePreviousClick}
       />
-      {isUserPostsLoading && isFetching ? (
-        <Loader />
-      ) : (
+      {isUserPostsLoading && isFetching && <Loader />}
+      {Boolean(userPosts.length) && !isUserPostsLoading && (
         <UserPosts posts={userPosts} />
       )}
     </div>

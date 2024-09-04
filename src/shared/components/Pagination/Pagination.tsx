@@ -10,7 +10,7 @@ export const Pagination = ({
   return (
     <div className="wrapper">
       <div>
-        Showing {currentPage} of {totalPages}
+        Showing page {currentPage} of {totalPages}
       </div>
       <div className="buttons">
         <Button

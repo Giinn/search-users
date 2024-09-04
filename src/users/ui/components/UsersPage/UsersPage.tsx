@@ -5,7 +5,6 @@ import { useMemo, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { SearchInput, Loader, Pagination } from "../../../../shared";
 import { UserPosts } from "../UserPosts/UserPosts";
-import { useQueryClient } from "@tanstack/react-query";
 
 export const UsersPage = () => {
   const [username, setUsername] = useState("");

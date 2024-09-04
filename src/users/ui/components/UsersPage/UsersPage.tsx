@@ -57,7 +57,7 @@ export const UsersPage = () => {
         isDisalbed={isUsersLoading}
       />
       {isUserPostsLoading && isFetching && <Loader />}
-      {Boolean(userPosts.length) && !isUserPostsLoading && (
+      {Boolean(userId) && !isUserPostsLoading && (
         <UserPosts posts={userPosts} />
       )}
     </div>

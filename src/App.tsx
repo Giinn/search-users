@@ -1,14 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Users from "./components/Users";
+import { UsersPage } from "./users/ui/components";
 
 const queryClient = new QueryClient();
 
-const App = () => {
+export const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Users />
+      <UsersPage />
     </QueryClientProvider>
   );
 };
-
-export default App;

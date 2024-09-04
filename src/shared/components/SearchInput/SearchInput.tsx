@@ -6,6 +6,7 @@ export const SearchInput = ({ onChange, value }: SearchInputProps) => {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       fullWidth
+      placeholder="Search users by typing at least 3 letters"
     />
   );
 };

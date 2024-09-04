@@ -6,6 +6,7 @@ export const Pagination = ({
   totalPages,
   onNextClick,
   onPreviousClick,
+  isDisalbed,
 }: PaginationProps) => {
   return (
     <div className="wrapper">
@@ -16,14 +17,14 @@ export const Pagination = ({
         <Button
           variant="outlined"
           onClick={onPreviousClick}
-          disabled={currentPage === 1}
+          disabled={currentPage === 1 || isDisalbed}
         >
           Previous
         </Button>
         <Button
           variant="outlined"
           onClick={onNextClick}
-          disabled={currentPage === totalPages}
+          disabled={currentPage === totalPages || isDisalbed}
         >
           Next
         </Button>
@@ -37,4 +38,5 @@ interface PaginationProps {
   totalPages: number;
   onPreviousClick: () => void;
   onNextClick: () => void;
+  isDisalbed?: boolean;
 }

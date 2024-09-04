@@ -28,11 +28,13 @@ export const UsersPage = () => {
 
   const handlePreviousClick = () => {
     setUserId(undefined);
+    setUsername("");
     setCurrentPage((prev) => prev - 1);
   };
 
   const handleNextClick = () => {
     setUserId(undefined);
+    setUsername("");
     setCurrentPage((prev) => prev + 1);
   };
 
@@ -52,6 +54,7 @@ export const UsersPage = () => {
         totalPages={20}
         onNextClick={handleNextClick}
         onPreviousClick={handlePreviousClick}
+        isDisalbed={isUsersLoading}
       />
       {isUserPostsLoading && isFetching && <Loader />}
       {Boolean(userPosts.length) && !isUserPostsLoading && (
